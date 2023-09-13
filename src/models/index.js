@@ -17,5 +17,10 @@ db.sequelize = sequelize;
 
 db.User = require("./userModel")(sequelize, Sequelize);
 db.Category = require("./categoryModel")(sequelize, Sequelize);
+db.Product = require("./productModel")(sequelize, Sequelize);
+
+// MODEL RELATIONSHIPS
+Product.belongsTo(User, { foreignKey: "vendorId" });
+Product.belongsTo(Category, { foreignKey: "categoryId" });
 
 module.exports = db;

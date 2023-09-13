@@ -32,5 +32,9 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER, // Foreign key to link with Category model
       allowNull: false,
     },
+    vendorId: {
+      type: DataTypes.UUID, // Foreign key to link with User model
+      allowNull: false,
+    },
   });
 };
