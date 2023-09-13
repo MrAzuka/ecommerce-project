@@ -18,9 +18,11 @@ db.sequelize = sequelize;
 db.User = require("./userModel")(sequelize, Sequelize);
 db.Category = require("./categoryModel")(sequelize, Sequelize);
 db.Product = require("./productModel")(sequelize, Sequelize);
+db.Review = require("./reviewModel")(sequelize, Sequelize);
 
 // MODEL RELATIONSHIPS
 Product.belongsTo(User, { foreignKey: "vendorId" });
 Product.belongsTo(Category, { foreignKey: "categoryId" });
-
+Review.belongsTo(User, { foreignKey: "userID" });
+Review.belongsTo(Product, { foreignKey: "productID" });
 module.exports = db;
